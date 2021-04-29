@@ -4,7 +4,7 @@ pipeline {
         
                     stage('Build') {
                 steps {
-                    bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                    bat "mvn -Dmaven.test.failure.ignore clean package"
                     archiveArtifacts 'target/*.jar'
                 }
 
