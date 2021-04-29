@@ -4,13 +4,13 @@ pipeline {
         
          stage('Build') {
                 steps {
-                    bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                     bat "mvn -Dmaven.test.failure.ignore=true clean package"
                     archiveArtifacts 'target/*.jar'
                 }
 
             }
        
-        stage("Build Artifact"){
+        /*stage("Build Artifact"){
             steps{
                 bat "mvn clean package"
             }
@@ -32,7 +32,7 @@ pipeline {
                 }
                 bat 'docker push noor091/petclinic:2.4.2'
             }
-        }
+        }*/
 
         
 
