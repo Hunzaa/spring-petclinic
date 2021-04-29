@@ -19,7 +19,7 @@ pipeline {
             }
         }
         
-        stage("SonarQube"){
+        /*stage("SonarQube"){
                 steps{
                     withSonarQubeEnv('Sonar8.2'){
                         bat "mvn -Dsonar.qualitygate=true sonar:sonar"
@@ -27,7 +27,7 @@ pipeline {
 
                 }
 
-            }
+            }*/
         
         stage("Build Docker Image"){
             steps{
