@@ -1,5 +1,3 @@
-FROM openjdk:latest
-
-COPY target/*.jar PetClinic.jar
-
-ENTRYPOINT ["java", "-jar", "/PetClinic.jar"]
+FROM anapsix/alpine-java
+COPY /target/*.jar /spring-petclinic-2.4.2.jar
+CMD ["java","-jar","/spring-petclinic-2.4.2.jar"]
