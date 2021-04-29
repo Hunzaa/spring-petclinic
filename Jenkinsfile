@@ -1,12 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage("Compile") {
-            steps{
-                bat "mvn -version"
-                bat "mvn clean compile"
+        
+                    stage('Build') {
+                steps {
+                    bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                    archiveArtifacts 'target/*.jar'
+                }
+
             }
-        }
        
         stage("Build Artifact"){
             steps{
