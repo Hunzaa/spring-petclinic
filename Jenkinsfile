@@ -18,7 +18,7 @@ pipeline {
       
           stage('Docker Build'){
                 steps {
-                    bat "docker build -t noor091/petclinic:1.0 ."
+                    bat "docker build -t noor091/petclinic:2.4.2 ."
                 }
            }
 
@@ -27,7 +27,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'docker-pass', variable: 'dockerPass')]) {
                         bat "docker login -u noor091 -p ${dockerPass}"
                     }
-                    bat "docker push noor091/petclinic:1.0"
+                    bat "docker push noor091/petclinic:2.4.2"
                 }
             }
       
