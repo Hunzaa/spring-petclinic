@@ -18,6 +18,17 @@ pipeline {
                 }
             }
         }
+        
+        stage("SonarQube"){
+                steps{
+                    withSonarQubeEnv('SonarQube'){
+                        bat "mvn -Dsonar.qualitygate=true sonar:sonar"
+                    }
+
+                }
+
+            }
+        
         stage("Build Docker Image"){
             steps{
                 bat 'docker build -t noor091/petclinic:2.4.2 .'
