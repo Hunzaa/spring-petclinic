@@ -2,9 +2,9 @@ pipeline {
     agent any
     stages {
         
-                    stage('Build') {
+         stage('Build') {
                 steps {
-                    bat "mvn -Dmaven.test.failure.ignore clean package"
+                    bat "mvn -Dmaven.test.failure.ignore=true clean package"
                     archiveArtifacts 'target/*.jar'
                 }
 
