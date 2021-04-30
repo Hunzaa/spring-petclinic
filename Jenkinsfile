@@ -1,22 +1,21 @@
 pipeline { 
   agent any
-    stages {
-            stage('Build') {
+    stages {         
+           stage('Build') {
                 steps {
                     bat "mvn -Dmaven.test.failure.ignore=true clean package"
                     archiveArtifacts 'target/*.jar'
                 }
-
             }
 
             stage('JUnit Tests') {
                 steps {
-					bat "mvn test"
-					junit '**/target/surefire-reports/TEST-*.xml'
+                        bat "mvn test"
+                        junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
       
-          stage('Docker Build'){
+            stage('Docker Build'){
                 steps {
                     bat "docker build -t noorhm1/petclinic:1.0 ."
                 }
@@ -29,7 +28,6 @@ pipeline {
                     }
                     bat "docker push noorhm1/petclinic:1.0"
                 }
-            }
-      
+            }      
     }
 }
