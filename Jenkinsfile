@@ -4,7 +4,7 @@ pipeline {
         
          stage('Build') {
                 steps {
-                     bat "C:\Users\Hinza\DevOps\Maven\apache-maven-3.8.1\bin\mvn -Dmaven.test.failure.ignore=true clean package"
+                     bat "mvn -Dmaven.test.failure.ignore=true clean package"
                     archiveArtifacts 'target/*.jar'
                 }
 
